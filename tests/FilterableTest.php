@@ -2,10 +2,11 @@
 
 namespace Tests;
 
-class FilterableTest extends TestCase {
-
+class FilterableTest extends TestCase
+{
     /** @test */
-    public function it_can_apply_public_scopes(){
+    public function it_can_apply_public_scopes()
+    {
         $query = Post::filter(['publicTest' => 'test']);
 
         $this->assertEquals('select * from "posts" where "title" like ?', $query->toSql());
@@ -17,7 +18,8 @@ class FilterableTest extends TestCase {
     }
 
     /** @test */
-    public function it_doesnt_apply_protected_scopes(){
+    public function it_doesnt_apply_protected_scopes()
+    {
         $query = Post::filter(['protectedTest' => 'test']);
 
         $this->assertEquals('select * from "posts"', $query->toSql());
@@ -27,7 +29,8 @@ class FilterableTest extends TestCase {
     }
 
     /** @test */
-    public function it_doesnt_apply_private_scopes(){
+    public function it_doesnt_apply_private_scopes()
+    {
         $query = Post::filter(['privateTest' => 'test']);
 
         $this->assertEquals('select * from "posts"', $query->toSql());
@@ -37,7 +40,8 @@ class FilterableTest extends TestCase {
     }
 
     /** @test */
-    public function it_only_applies_public_scopes_when_public_and_private_given(){
+    public function it_only_applies_public_scopes_when_public_and_private_given()
+    {
         $query = Post::filter(['publicTest' => 'test', 'privateTest' => 'testing']);
 
         $this->assertEquals('select * from "posts" where "title" like ?', $query->toSql());
@@ -49,7 +53,8 @@ class FilterableTest extends TestCase {
     }
 
     /** @test */
-    public function it_can_be_applied_multiple_times(){
+    public function it_can_be_applied_multiple_times()
+    {
         $query = Post::filter(['publicTest' => 'test'])->filter(['publicTest' => 'testing']);
 
         $this->assertEquals('select * from "posts" where "title" like ? and "title" like ?', $query->toSql());
@@ -60,5 +65,4 @@ class FilterableTest extends TestCase {
         $this->assertEquals('%test%', $bindings[0]);
         $this->assertEquals('%testing%', $bindings[1]);
     }
-
 }

@@ -2,13 +2,15 @@
 
 namespace Tests;
 
-use RMoore\Filterable\Filterable;
 use Illuminate\Database\Eloquent\Model;
+use RMoore\Filterable\Filterable;
 
-class Post extends Model {
+class Post extends Model
+{
     use Filterable;
 
-    public function filters() {
+    public function filters()
+    {
         return new PostFilters();
     }
 }

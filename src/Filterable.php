@@ -4,9 +4,10 @@ namespace RMoore\Filterable;
 
 use Illuminate\Database\Eloquent\Builder;
 
-trait Filterable {
-
-    public function scopeFilter(Builder $query, array $args = null) : Builder {
+trait Filterable
+{
+    public function scopeFilter(Builder $query, array $args = null) : Builder
+    {
         $handler = $this->filters();
 
         $filters = array_merge($this->defaultFilters(), $args ?? request()->all());
@@ -16,7 +17,8 @@ trait Filterable {
         return $query;
     }
 
-    public function filters(){
+    public function filters()
+    {
         $class = get_class($this); // App\User
         $base = class_basename($class); // User
 
@@ -27,7 +29,8 @@ trait Filterable {
         return resolve($filters);
     }
 
-    public function defaultFilters() : array {
+    public function defaultFilters() : array
+    {
         return [];
     }
 }
