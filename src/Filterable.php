@@ -2,9 +2,8 @@
 
 namespace RMoore\Filterable;
 
-use Illuminate\Database\Eloquent\Builder;
-
 use Illuminate\Container\Container;
+use Illuminate\Database\Eloquent\Builder;
 
 trait Filterable
 {
