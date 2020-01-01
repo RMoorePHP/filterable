@@ -4,6 +4,8 @@ namespace RMoore\Filterable;
 
 use Illuminate\Database\Eloquent\Builder;
 
+use Illuminate\Container\Container;
+
 trait Filterable
 {
     public function scopeFilter(Builder $query, array $args = null) : Builder
@@ -26,9 +28,7 @@ trait Filterable
 
         $filters = sprintf('%s\\%sFilters', $namespace, $base); // App\Filters\UserFilters
 
-        echo 'hi';
-
-        return resolve($filters);
+        return Container::getInstance()->make($filters);
     }
 
     public function defaultFilters() : array
