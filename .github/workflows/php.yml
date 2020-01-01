@@ -22,11 +22,3 @@ jobs:
     - name: Run test suite
       run: vendor/bin/phpunit
 
-    - name: Process Code Coverage
-      run: COVERALLS_RUN_LOCALLY=true COVERALLS_REPO_TOKEN=meh php vendor/bin/php-coveralls --dry-run --coverage_clover=./build/logs/clover.xml --json_path=./build/logs/lcov.info
-
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ./build/logs/lcov.info
