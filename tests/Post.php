@@ -9,8 +9,8 @@ class Post extends Model
 {
     use Filterable;
 
-    public function filters()
-    {
-        return new PostFilters();
-    }
+//     public function filters()
+//     {
+//         return new PostFilters();
+//     }
 }
