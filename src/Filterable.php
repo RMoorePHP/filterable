@@ -25,9 +25,9 @@ trait Filterable
         $namespace = config('filterable.base_namespace'); // App\Filters
 
         $filters = sprintf('%s\\%sFilters', $namespace, $base); // App\Filters\UserFilters
-        
-        print("hi");
-        
+
+        echo 'hi';
+
         return resolve($filters);
     }
 
