@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Tests\RMoore\Filterable;
 
 use Illuminate\Database\Capsule\Manager as DB;
 

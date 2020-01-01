@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Tests\RMoore\Filterable;
 
 use Illuminate\Database\Eloquent\Builder;
 use RMoore\Filterable\Filters;
