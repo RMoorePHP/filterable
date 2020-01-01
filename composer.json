@@ -22,7 +22,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\RMoore\\Filterable\\": "tests/"
+            "Tests\\": "tests/"
         },
         "classmap": [
             "tests/TestCase.php"

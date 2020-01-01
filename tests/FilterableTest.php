@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\RMoore\Filterable;
+namespace Tests;
 
 class FilterableTest extends TestCase
 {
