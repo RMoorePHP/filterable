@@ -2,6 +2,7 @@
 
 namespace RMoore\Filterable;
 
+use Illuminate\Container\Container;
 use Illuminate\Database\Eloquent\Builder;
 
 trait Filterable
@@ -26,7 +27,7 @@ trait Filterable
 
         $filters = sprintf('%s\\%sFilters', $namespace, $base); // App\Filters\UserFilters
 
-        return resolve($filters);
+        return Container::getInstance()->make($filters);
     }
 
     public function defaultFilters() : array
